@@ -7,6 +7,7 @@ public class Emprestimo {
         this.livro = livro;
         this.nomeDoUsuario = nomeDoUsuario;
     }
+
     @Override
     public String toString() {
         return "Livro emprestado: " + livro.getTitulo() + " para " +

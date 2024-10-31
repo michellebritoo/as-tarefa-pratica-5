@@ -10,10 +10,10 @@ public class Biblioteca {
         this.emprestimos = new ArrayList<>();
     }
 
-    // Método mal projetado que cria os empréstimos diretamente
-    public void registrarEmprestimo(Livro livro, String nomeDoUsuario) {
-        Emprestimo emprestimo = new Emprestimo(livro, nomeDoUsuario);
-        // Código mal projetado
+    public void registrarEmprestimo(Emprestimo emprestimo) {
+        /**
+         * Agora a responsabilidade de criar emprestimos não pertence mais a classe biblioteca
+         */
         emprestimos.add(emprestimo);
     }
 
