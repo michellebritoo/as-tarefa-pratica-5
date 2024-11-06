@@ -1,5 +1,6 @@
 package org.example;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,16 +11,24 @@ public class Biblioteca {
         this.emprestimos = new ArrayList<>();
     }
 
-    // Método mal projetado que cria os empréstimos diretamente
-    public void registrarEmprestimo(Livro livro, String nomeDoUsuario) {
-        Emprestimo emprestimo = new Emprestimo(livro, nomeDoUsuario);
-        // Código mal projetado
+    public void registrarEmprestimo(Livro livro, String nomeDoUsuario, LocalDate dataDeDevolucao) {
+        Emprestimo emprestimo = new Emprestimo(livro, nomeDoUsuario, dataDeDevolucao);
         emprestimos.add(emprestimo);
     }
 
-    public void exibirEmprestimos() {
+    public void devolverLivro(Livro livro) {
         for (Emprestimo emprestimo : emprestimos) {
-            System.out.println(emprestimo);
+            if (emprestimo.getLivro().equals(livro) && !emprestimo.isDevolvido()) {
+                emprestimo.setDevolvido(true);
+
+                System.out.println("Livro " + livro.getTitulo() + " devolvido com sucesso.");
+                return;
+            }
         }
+        System.out.println("Erro: Livro não encontrado ou já devolvido.");
+    }
+
+    public List<Emprestimo> getEmprestimos() {
+        return emprestimos;
     }
 }
