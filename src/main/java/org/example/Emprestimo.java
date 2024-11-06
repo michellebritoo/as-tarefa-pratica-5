@@ -1,6 +1,7 @@
 package org.example;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Emprestimo {
     private Livro livro;
@@ -25,6 +26,15 @@ public class Emprestimo {
 
     public Livro getLivro() {
         return livro;
+    }
+
+    public double calcularMulta() {
+        long diasAtraso = ChronoUnit.DAYS.between(this.getDataDeDevolucao(), LocalDate.now());
+        double multaPorDia = 2.0;
+        if (diasAtraso > 0) {
+            return diasAtraso * multaPorDia;
+        }
+        return 0.0;
     }
 
     @Override
