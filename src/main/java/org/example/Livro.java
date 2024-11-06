@@ -1,9 +1,7 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.List;
-// Classe que representa um Livro
-public class Livro {
+// Classe que representa um Livro herdando de uma superclasse midia
+public class Livro extends Midia {
     private String titulo;
     private String autor;
     public Livro(String titulo, String autor) {
