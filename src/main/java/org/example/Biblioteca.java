@@ -3,23 +3,35 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
+// Classe Biblioteca diretamente responsável pela criação das mídias
 public class Biblioteca {
-    private List<Emprestimo> emprestimos;
+    private List<Object> midias;
 
     public Biblioteca() {
-        this.emprestimos = new ArrayList<>();
+        this.midias = new ArrayList<>();
     }
 
-    // Método mal projetado que cria os empréstimos diretamente
-    public void registrarEmprestimo(Livro livro, String nomeDoUsuario) {
-        Emprestimo emprestimo = new Emprestimo(livro, nomeDoUsuario);
-        // Código mal projetado
-        emprestimos.add(emprestimo);
+    // Método para adicionar mídia (Livro ou Revista)
+    public void adicionarMidia(String tipo, String titulo, String
+            autorOuEdicao) {
+        if (tipo.equals("Livro")) {
+            Livro livro = new Livro(titulo, autorOuEdicao); // Criação manual de Livro
+            midias.add(livro);
+            System.out.println("Livro adicionado: " + titulo);
+        } else if (tipo.equals("Revista")) {
+            Revista revista = new Revista(titulo,
+                    Integer.parseInt(autorOuEdicao)); // Criação manual de Revista
+            midias.add(revista);
+            System.out.println("Revista adicionada: " + titulo);
+        } else {
+            System.out.println("Erro: Tipo de mídia não reconhecido.");
+        }
     }
 
-    public void exibirEmprestimos() {
-        for (Emprestimo emprestimo : emprestimos) {
-            System.out.println(emprestimo);
+    // Exibe todas as mídias
+    public void exibirMidias() {
+        for (Object midia : midias) {
+            System.out.println(midia.toString());
         }
     }
 }
