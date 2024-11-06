@@ -3,23 +3,23 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
+// Classe Biblioteca que cria múltiplas instâncias de configurações
 public class Biblioteca {
-    private List<Emprestimo> emprestimos;
+    private List<String> livros;
+    private ConfiguracaoBiblioteca configuracaoBiblioteca; // Cada biblioteca tem suas próprias configurações
 
-    public Biblioteca() {
-        this.emprestimos = new ArrayList<>();
+    public Biblioteca(String horarios, double multa) {
+        this.livros = new ArrayList<>();
+        this.configuracaoBiblioteca = new
+                ConfiguracaoBiblioteca(horarios, multa);
     }
-
-    // Método mal projetado que cria os empréstimos diretamente
-    public void registrarEmprestimo(Livro livro, String nomeDoUsuario) {
-        Emprestimo emprestimo = new Emprestimo(livro, nomeDoUsuario);
-        // Código mal projetado
-        emprestimos.add(emprestimo);
+    // Adiciona um livro à biblioteca
+    public void adicionarLivro(String livro) {
+        livros.add(livro);
+        System.out.println("Livro adicionado: " + livro);
     }
-
-    public void exibirEmprestimos() {
-        for (Emprestimo emprestimo : emprestimos) {
-            System.out.println(emprestimo);
-        }
+    // Exibe as configurações da biblioteca
+    public void exibirConfiguracoes() {
+        System.out.println(configuracaoBiblioteca.toString());
     }
 }
