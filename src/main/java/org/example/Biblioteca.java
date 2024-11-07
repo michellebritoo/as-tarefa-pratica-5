@@ -3,16 +3,15 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-// Classe Biblioteca que cria múltiplas instâncias de configurações
 public class Biblioteca {
     private List<String> livros;
-    private ConfiguracaoBiblioteca configuracaoBiblioteca; // Cada biblioteca tem suas próprias configurações
-
+    private ConfiguracaoBiblioteca configuracaoBiblioteca;
     public Biblioteca(String horarios, double multa) {
         this.livros = new ArrayList<>();
-        this.configuracaoBiblioteca = new
-                ConfiguracaoBiblioteca(horarios, multa);
+        // Busca a instancia da configuração sempre que uma Biblioteca é criada
+        this.configuracaoBiblioteca = ConfiguracaoBiblioteca.getInstancia(horarios, multa);
     }
+
     // Adiciona um livro à biblioteca
     public void adicionarLivro(String livro) {
         livros.add(livro);
