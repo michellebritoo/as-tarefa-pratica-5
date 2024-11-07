@@ -1,25 +1,43 @@
 package org.example;
 
+// Classe Biblioteca sem padrão composto, com código duplicado para coleções
+
 import java.util.ArrayList;
 import java.util.List;
-
 public class Biblioteca {
-    private List<Emprestimo> emprestimos;
-
+    private List<Livro> livros;
+    private List<Revista> revistas;
+    private List<ColecaoDeMidias> colecoes;
     public Biblioteca() {
-        this.emprestimos = new ArrayList<>();
+        this.livros = new ArrayList<>();
+        this.revistas = new ArrayList<>();
+        this.colecoes = new ArrayList<>();
     }
-
-    // Método mal projetado que cria os empréstimos diretamente
-    public void registrarEmprestimo(Livro livro, String nomeDoUsuario) {
-        Emprestimo emprestimo = new Emprestimo(livro, nomeDoUsuario);
-        // Código mal projetado
-        emprestimos.add(emprestimo);
+    // Adiciona um livro à biblioteca
+    public void adicionarLivro(Livro livro) {
+        livros.add(livro);
     }
+    // Adiciona uma revista à biblioteca
+    public void adicionarRevista(Revista revista) {
+        revistas.add(revista);
 
-    public void exibirEmprestimos() {
-        for (Emprestimo emprestimo : emprestimos) {
-            System.out.println(emprestimo);
+    }
+    // Adiciona uma coleção à biblioteca
+    public void adicionarColecao(ColecaoDeMidias colecao) {
+        colecoes.add(colecao);
+    }
+    // Exibe todas as mídias e coleções
+    public void exibirBiblioteca() {
+        System.out.println("Mídias Individuais:");
+        for (Livro livro : livros) {
+            System.out.println(livro);
+        }
+        for (Revista revista : revistas) {
+            System.out.println(revista);
+        }
+        System.out.println("\nColeções:");
+        for (ColecaoDeMidias colecao : colecoes) {
+            colecao.exibirColecao();
         }
     }
 }
