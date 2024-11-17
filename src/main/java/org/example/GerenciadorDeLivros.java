@@ -13,4 +13,8 @@ public class GerenciadorDeLivros {
         livros.add(livro);
         System.out.println("Livro adicionado: " + livro.getTitulo());
     }
+
+    public List<Livro> getLivros() {
+        return livros;
+    }
 }

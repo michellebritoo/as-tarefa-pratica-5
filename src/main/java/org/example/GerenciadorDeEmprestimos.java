@@ -14,4 +14,8 @@ public class GerenciadorDeEmprestimos {
         System.out.println("Empréstimo registrado para: " +
                 emprestimo.getNomeDoUsuario());
     }
+
+    public List<Emprestimo> getEmprestimos() {
+        return emprestimos;
+    }
 }

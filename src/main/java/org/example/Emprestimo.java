@@ -21,6 +21,10 @@ public class Emprestimo {
         return dataDeDevolucao;
     }
 
+    public Livro getLivro() {
+        return livro;
+    }
+
     @Override
     public String toString() {
         return "Emprestimo{" +
