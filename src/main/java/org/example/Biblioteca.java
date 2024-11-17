@@ -1,6 +1,6 @@
 package org.example;
 
-// Classe Biblioteca com padrão composto, sem código duplicado para diferentes tipos de midias
+// Classe Biblioteca com padrão polimorfismo, sem código duplicado para diferentes tipos de midias
 import java.util.ArrayList;
 import java.util.List;
 public class Biblioteca {
@@ -15,7 +15,7 @@ public class Biblioteca {
 
     // Exibe todas as mídias e coleções
     public void exibirBiblioteca() {
-        System.out.println("Mídias Individuais e Coleções:");
+        System.out.println("Mídias da biblioteca:");
         for (Midia midia : midias) {
             midia.exibirDetalhes();
         }
