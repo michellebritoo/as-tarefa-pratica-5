@@ -1,14 +1,13 @@
 package org.example;
 
-public class Livro {
+public class Revista {
     private String titulo;
-    private String autor;
-    public Livro(String titulo, String autor) {
+    private int edicao;
+    public Revista(String titulo, int edicao) {
         this.titulo = titulo;
-        this.autor = autor;
+        this.edicao = edicao;
     }
     public String getTitulo() {
         return titulo;
     }
-
 }
