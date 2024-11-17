@@ -3,32 +3,32 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-// Classe que representa uma coleção de livros ou revistas
-public class ColecaoDeMidias {
-    private String nome;
-    private List<Livro> livros;
-    private List<Revista> revistas;
+// Classe que representa uma coleção de livros ou revistas (Ou qualquer outra midia que for implementada)
+public class ColecaoDeMidias implements Midia {
+    private final String nome;
+    private final List<Midia> midias;
+
     public ColecaoDeMidias(String nome) {
         this.nome = nome;
-        this.livros = new ArrayList<>();
-        this.revistas = new ArrayList<>();
+        this.midias = new ArrayList<>();
     }
-    // Adiciona um livro à coleção
-    public void adicionarLivro(Livro livro) {
-        livros.add(livro);
+
+    // Adiciona uma midia à coleção
+    public void adicionarMidia(Midia midia) {
+        midias.add(midia);
     }
-    // Adiciona uma revista à coleção
-    public void adicionarRevista(Revista revista) {
-        revistas.add(revista);
+
+    @Override
+    public String getTitulo() {
+        return this.nome;
     }
+
     // Exibe todos os itens da coleção
-    public void exibirColecao() {
+    @Override
+    public void exibirDetalhes() {
         System.out.println("Coleção: " + nome);
-        for (Livro livro : livros) {
-            System.out.println(livro);
-        }
-        for (Revista revista : revistas) {
-            System.out.println(revista);
+        for (Midia midia : midias) {
+            midia.exibirDetalhes();
         }
     }
 }

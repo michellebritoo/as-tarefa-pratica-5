@@ -1,20 +1,27 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.List;
 // Classe que representa um livro
-public class Livro {
+public class Livro implements Midia {
     private String titulo;
     private String autor;
+
     public Livro(String titulo, String autor) {
         this.titulo = titulo;
         this.autor = autor;
     }
+
+    @Override
     public String getTitulo() {
         return titulo;
     }
+
+    @Override
+    public void exibirDetalhes() {
+        System.out.println(this);
+    }
+
     @Override
     public String toString() {
-        return "Livro: " + titulo + ", Autor: " + autor;
+        return String.format("Livro: %s, Autor: %s", this.titulo, this.autor);
     }
 }
