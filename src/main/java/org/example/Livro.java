@@ -1,7 +1,7 @@
 package org.example;
 
 // Classe que representa um livro
-public class Livro {
+public class Livro implements Midia {
     private String titulo;
     private String autor;
     public Livro(String titulo, String autor) {

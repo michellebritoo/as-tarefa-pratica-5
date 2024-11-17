@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-// Classe Biblioteca com lógica fixa para calcular multas
+// Classe Biblioteca sem lógica fixa para calcular multas
 public class Biblioteca {
     private List<Emprestimo> emprestimos;
 
@@ -13,14 +13,13 @@ public class Biblioteca {
     }
 
     // Registra um empréstimo
-    public void registrarEmprestimo(Object midia, String
-            nomeDoUsuario, LocalDate dataDeDevolucao) {
+    public void registrarEmprestimo(Midia midia, String nomeDoUsuario, LocalDate dataDeDevolucao) {
         Emprestimo emprestimo = new Emprestimo(midia, nomeDoUsuario, dataDeDevolucao);
         emprestimos.add(emprestimo);
         System.out.println("Empréstimo registrado para: " + nomeDoUsuario);
     }
 
-    // Calcula multas com lógica fixa usando if-else
+    // Calcula multas de forma dinamica de acordo com o tipo de midia
     public void calcularMultas() {
         for (Emprestimo emprestimo : emprestimos) {
             if (!emprestimo.isDevolvido()) {
@@ -29,5 +28,18 @@ public class Biblioteca {
                     System.out.println("Usuário: " + emprestimo.getNomeDoUsuario() + ", Multa: R$ " + multa);
             }
         }
+    }
+
+    // Devolve um livro
+    public void devolverLivro(String tituloDoLivro) {
+        for (Emprestimo emprestimo : emprestimos) {
+            if
+            (emprestimo.getMidia().getTitulo().equals(tituloDoLivro) && !emprestimo.isDevolvido()) {
+                emprestimo.setDevolvido(true);
+                System.out.println("Livro \"" + tituloDoLivro + "\" devolvido com sucesso.");
+                return;
+            }
+        }
+        System.out.println("Erro: Livro \"" + tituloDoLivro + "\" não encontrado ou já devolvido.");
     }
 }

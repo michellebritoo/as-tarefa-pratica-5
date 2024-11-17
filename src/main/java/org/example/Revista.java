@@ -1,7 +1,7 @@
 package org.example;
 
 // Classe que representa uma revista
-public class Revista {
+public class Revista implements Midia {
     private String titulo;
     private int edicao;
     public Revista(String titulo, int edicao) {

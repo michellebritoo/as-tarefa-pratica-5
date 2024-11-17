@@ -4,12 +4,12 @@ import java.time.LocalDate;
 
 // Classe que representa um empréstimo
 public class Emprestimo {
-    private Object midia;
+    private Midia midia;
     private MultaStrategy multaStrategy;
     private String nomeDoUsuario;
     private LocalDate dataDeDevolucao;
     private boolean devolvido;
-    public Emprestimo(Object midia, String nomeDoUsuario, LocalDate
+    public Emprestimo(Midia midia, String nomeDoUsuario, LocalDate
             dataDeDevolucao) {
         this.midia = midia;
         this.nomeDoUsuario = nomeDoUsuario;
@@ -31,7 +31,7 @@ public class Emprestimo {
     public String getNomeDoUsuario() {
         return nomeDoUsuario;
     }
-    public Object getMidia() {
+    public Midia getMidia() {
         return midia;
     }
 
