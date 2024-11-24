@@ -6,11 +6,9 @@ public class Emprestimo {
     private Livro livro;
     private String nomeDoUsuario;
     private LocalDate dataDeDevolucao;
-
     private boolean devolvido;
 
-    public Emprestimo(Livro livro, String nomeDoUsuario, LocalDate
-            dataDeDevolucao) {
+    public Emprestimo(Livro livro, String nomeDoUsuario, LocalDate dataDeDevolucao) {
         this.livro = livro;
         this.nomeDoUsuario = nomeDoUsuario;
         this.dataDeDevolucao = dataDeDevolucao;
@@ -35,6 +33,15 @@ public class Emprestimo {
 
     public Livro getLivro() {
         return livro;
+    }
+
+    public void calcularMulta() {
+        if (!this.isDevolvido()) {
+            long atraso = LocalDate.now().toEpochDay() - this.getDataDeDevolucao().toEpochDay();
+            double multa = atraso > 0 ? atraso * 2 : 0;
+
+            System.out.println("Usuário: " + this.getNomeDoUsuario() + ", Multa: R$ " + multa);
+        }
     }
 
     @Override

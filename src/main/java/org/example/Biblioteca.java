@@ -50,21 +50,8 @@ public class Biblioteca {
         System.out.println("Erro: Livro \"" + tituloDoLivro + "\" não encontrado ou já devolvido.");
     }
 
-    // Calcula multas diretamente
-    public void calcularMultas() {
-        for (Emprestimo emprestimo : emprestimos) {
-            if (!emprestimo.isDevolvido()) {
-                long diasAtraso = LocalDate.now().toEpochDay() -
-                        emprestimo.getDataDeDevolucao().toEpochDay();
-                double multa = diasAtraso > 0 ? diasAtraso * 2 : 0;
-                System.out.println("Usuário: " +
-                        emprestimo.getNomeDoUsuario() + ", Multa: R$ " + multa);
-            }
-        }
-    }
-
     // Método interno para encontrar um livro na lista
-    private Livro encontrarLivro(String titulo) {
+    public Livro encontrarLivro(String titulo) {
         for (Livro livro : livros) {
             if (livro.getTitulo().equals(titulo)) {
                 return livro;
