@@ -1,26 +1,17 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.List;
-
-// Classe Biblioteca diretamente acoplada à lista de mídias
 public class Biblioteca {
-    private List<Midia> midias; // Acesso direto à lista de mídias
+    private MidiasRepository repository; // Classe Biblioteca agora acessar apenas o repositorio e nao as midias diretamente
 
-    public Biblioteca() {
-        this.midias = new ArrayList<>();
+    public Biblioteca(MidiasRepository repository) {
+        this.repository = repository;
     }
 
-    // Adiciona qualquer tipo de mídia
     public void adicionarMidia(Midia midia) {
-        midias.add(midia);
-        System.out.println("Mídia adicionada: " + midia.getTitulo());
+        repository.adicionarMidia(midia);
     }
 
-    // Exibe todas as mídias
     public void exibirMidias() {
-        for (Midia midia : midias) {
-            midia.exibirDetalhes();
-        }
+        repository.listarMidias();
     }
 }
