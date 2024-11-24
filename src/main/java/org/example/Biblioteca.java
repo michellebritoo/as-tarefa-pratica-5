@@ -3,23 +3,24 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
+// Classe Biblioteca diretamente acoplada à lista de mídias
 public class Biblioteca {
-    private List<Emprestimo> emprestimos;
+    private List<Midia> midias; // Acesso direto à lista de mídias
 
     public Biblioteca() {
-        this.emprestimos = new ArrayList<>();
+        this.midias = new ArrayList<>();
     }
 
-    // Método mal projetado que cria os empréstimos diretamente
-    public void registrarEmprestimo(Livro livro, String nomeDoUsuario) {
-        Emprestimo emprestimo = new Emprestimo(livro, nomeDoUsuario);
-        // Código mal projetado
-        emprestimos.add(emprestimo);
+    // Adiciona qualquer tipo de mídia
+    public void adicionarMidia(Midia midia) {
+        midias.add(midia);
+        System.out.println("Mídia adicionada: " + midia.getTitulo());
     }
 
-    public void exibirEmprestimos() {
-        for (Emprestimo emprestimo : emprestimos) {
-            System.out.println(emprestimo);
+    // Exibe todas as mídias
+    public void exibirMidias() {
+        for (Midia midia : midias) {
+            midia.exibirDetalhes();
         }
     }
 }
